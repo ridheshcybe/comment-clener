@@ -1,4 +1,4 @@
-#complete
+# complete
 - html
  - basic
  - python
@@ -14,3 +14,24 @@
  - js
  - c#
  - c
+
+ # to do
+ - ada
+- apl
+- applescript
+- c
+- csharp
+- hashbang
+- haskell
+- less
+- lua
+- matlab
+- ocaml
+- pascal
+- perl
+- ruby
+- sass
+- shebang
+- swift
+- xml
+...forever
