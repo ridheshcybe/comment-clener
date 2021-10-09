@@ -17,10 +17,11 @@
  - ada
 - apl
 - applescript
+- haskell
+
 
  # to do
 
-- haskell
 - less
 - lua
 - matlab

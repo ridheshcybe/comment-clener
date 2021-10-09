@@ -36,8 +36,11 @@ module.exports = {
     applescript: e => new Promise((l,r)=>{
         l(e.replaceAll(/(--[^#].+[\n|\r])|(#[^#].+[\n\r])|(\(\*[^#]+\*\))/g, ""));
     }),
-    xsh: e => new Promise((l,r)=>{
-
+    hs: e=> new Promise((l,r)=>{
+        l(e.replaceAll(/(--[^#].+[\n|\r])|({-[^#]+-})/g, ""))
+    }),
+    lhs: e=> new Promise((l,r)=>{
+l(e.replaceAll(/(>[^#].+[\n|\r])/g, ""))
     }),
     go: e => regexall(e),
     groovy: e => regexall(e),
