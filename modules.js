@@ -42,6 +42,7 @@ module.exports = {
     lhs: e=> new Promise((l,r)=>{
 l(e.replaceAll(/(>[^#].+[\n|\r])/g, ""))
     }),
+    less: e=> this.css(e),
     go: e => regexall(e),
     groovy: e => regexall(e),
     gvy: e => regexall(e),
