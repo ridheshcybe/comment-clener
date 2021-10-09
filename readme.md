@@ -28,7 +28,6 @@
 - perl
 - ruby
 - sass
-- shebang
 - swift
 - xml
 ...forever
