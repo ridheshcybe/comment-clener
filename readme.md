@@ -20,8 +20,6 @@
 
  # to do
 
-- c
-- csharp
 - hashbang
 - haskell
 - less
