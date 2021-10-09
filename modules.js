@@ -19,6 +19,9 @@ module.exports = {
     sql: e => new Promise((l, r) => {
         l(e.replaceAll(/(--.*[\r\n])|((\/\*([^*]|[\r\n]|(\*+([^*\/]|[\r\n])))*\*+\/)|(\/\/.*))/g, ""))
     }),
+    ada: e => new Promise((l,r) => {
+        l(e.replaceAll(/(--[^#]+[\n|\r])/g, ""))
+    }),
     go: e => regexall(e),
     groovy: e => regexall(e),
     gvy: e => regexall(e),
