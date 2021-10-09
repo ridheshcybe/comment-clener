@@ -43,6 +43,12 @@ module.exports = {
     mat: e => new Promise((l, r) => {
         l(e.replaceAll(/(%[^#].+)|(\%\{([^*]|[\r\n]|(\*+([^*\/]|[\r\n])))*\%+\})/g, ''))
     }),
+    pascal: e => new Promise((l, r) => {
+        l(e.replaceAll(/(\(\*[^#]*\*\))|(\{[^#]*\})/g, ''));
+    }),
+    pl: e => this.pascal(e),
+    p: e => this.pascal(e),
+    pas: e => this.pascal(e),
     m: e => this.mat(e),
     less: e => this.css(e),
     go: e => regexall(e),
