@@ -21,28 +21,32 @@ module.exports = {
     sql: e => new Promise((l, r) => {
         l(e.replaceAll(/(--.*[\r\n])|((\/\*([^*]|[\r\n]|(\*+([^*\/]|[\r\n])))*\*+\/)|(\/\/.*))/g, ""))
     }),
-    ada: e => new Promise((l,r) => {
+    ada: e => new Promise((l, r) => {
         l(e.replaceAll(/(--[^#]+[\n|\r])/g, ""))
     }),
-    apl: e => new Promise((l,r)=>{
+    apl: e => new Promise((l, r) => {
         l(e.replaceAll(/(⍝[^#].+[\n|\r])/g, ""))
     }),
-    scpt: e => new Promise((l,r)=>{
-        l(e.replaceAll(/(--[^#].+[\n|\r])|(#[^#].+[\n\r])|(\(\*[^#]+\*\))/g, ""));
-    }), 
-    scptd: e => new Promise((l,r)=>{
+    scpt: e => new Promise((l, r) => {
         l(e.replaceAll(/(--[^#].+[\n|\r])|(#[^#].+[\n\r])|(\(\*[^#]+\*\))/g, ""));
     }),
-    applescript: e => new Promise((l,r)=>{
+    scptd: e => new Promise((l, r) => {
         l(e.replaceAll(/(--[^#].+[\n|\r])|(#[^#].+[\n\r])|(\(\*[^#]+\*\))/g, ""));
     }),
-    hs: e=> new Promise((l,r)=>{
+    applescript: e => new Promise((l, r) => {
+        l(e.replaceAll(/(--[^#].+[\n|\r])|(#[^#].+[\n\r])|(\(\*[^#]+\*\))/g, ""));
+    }),
+    hs: e => new Promise((l, r) => {
         l(e.replaceAll(/(--[^#].+[\n|\r])|({-[^#]+-})/g, ""))
     }),
-    lhs: e=> new Promise((l,r)=>{
-l(e.replaceAll(/(>[^#].+[\n|\r])/g, ""))
+    lhs: e => new Promise((l, r) => {
+        l(e.replaceAll(/(>[^#].+[\n|\r])/g, ""))
     }),
-    less: e=> this.css(e),
+    mat: e => new Promise((l, r) => {
+        l(e.replaceAll(/(%[^#].+)|(\%\{([^*]|[\r\n]|(\*+([^*\/]|[\r\n])))*\%+\})/g, ''))
+    }),
+    m: e => this.mat(e),
+    less: e => this.css(e),
     go: e => regexall(e),
     groovy: e => regexall(e),
     gvy: e => regexall(e),

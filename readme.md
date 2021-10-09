@@ -18,12 +18,12 @@
 - apl
 - applescript
 - haskell
+- matlab
 - less
 
 
  # to do
 
-- matlab
 - ocaml
 - pascal
 - perl
