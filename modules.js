@@ -2,7 +2,9 @@ function regexall(e) {
     return new Promise((l, r) => {
         l(e.replaceAll(/(\/\*([^*]|[\r\n]|(\*+([^*\/]|[\r\n])))*\*+\/)|(\/\/.*)/g, ""))
     })
-}
+};
+
+
 module.exports = {
     html: e => new Promise((l, r) => {
         l(e.replaceAll(/<!--(.|\s)*?-->/g, ""))
@@ -33,6 +35,9 @@ module.exports = {
     }),
     applescript: e => new Promise((l,r)=>{
         l(e.replaceAll(/(--[^#].+[\n|\r])|(#[^#].+[\n\r])|(\(\*[^#]+\*\))/g, ""));
+    }),
+    xsh: e => new Promise((l,r)=>{
+
     }),
     go: e => regexall(e),
     groovy: e => regexall(e),

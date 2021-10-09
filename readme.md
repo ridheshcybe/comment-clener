@@ -20,7 +20,6 @@
 
  # to do
 
-- hashbang
 - haskell
 - less
 - lua
