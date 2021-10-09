@@ -22,6 +22,9 @@ module.exports = {
     ada: e => new Promise((l,r) => {
         l(e.replaceAll(/(--[^#]+[\n|\r])/g, ""))
     }),
+    apl: e => new Promise((l,r)=>{
+        l(e.replaceAll(/(⍝[^#].+[\n|\r])/g, ""))
+    }),
     go: e => regexall(e),
     groovy: e => regexall(e),
     gvy: e => regexall(e),
