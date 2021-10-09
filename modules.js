@@ -25,6 +25,15 @@ module.exports = {
     apl: e => new Promise((l,r)=>{
         l(e.replaceAll(/(⍝[^#].+[\n|\r])/g, ""))
     }),
+    scpt: e => new Promise((l,r)=>{
+        l(e.replaceAll(/(--[^#].+[\n|\r])|(#[^#].+[\n\r])|(\(\*[^#]+\*\))/g, ""));
+    }), 
+    scptd: e => new Promise((l,r)=>{
+        l(e.replaceAll(/(--[^#].+[\n|\r])|(#[^#].+[\n\r])|(\(\*[^#]+\*\))/g, ""));
+    }),
+    applescript: e => new Promise((l,r)=>{
+        l(e.replaceAll(/(--[^#].+[\n|\r])|(#[^#].+[\n\r])|(\(\*[^#]+\*\))/g, ""));
+    }),
     go: e => regexall(e),
     groovy: e => regexall(e),
     gvy: e => regexall(e),

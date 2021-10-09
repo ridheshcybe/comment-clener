@@ -16,10 +16,10 @@
  - c
  - ada
 - apl
+- applescript
 
  # to do
 
-- applescript
 - c
 - csharp
 - hashbang
