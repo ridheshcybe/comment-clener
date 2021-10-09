@@ -1,8 +1,6 @@
-function regexall(e) {
-    return new Promise((l, r) => {
-        l(e.replaceAll(/(\/\*([^*]|[\r\n]|(\*+([^*\/]|[\r\n])))*\*+\/)|(\/\/.*)/g, ""))
-    })
-};
+var regexall = e => new Promise((l, r) => {
+    l(e.replaceAll(/(\/\*([^*]|[\r\n]|(\*+([^*\/]|[\r\n])))*\*+\/)|(\/\/.*)/g, ""))
+})
 
 
 module.exports = {

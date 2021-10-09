@@ -24,7 +24,6 @@
 
  # to do
 
-- ocaml
 - pascal
 - perl
 - ruby
