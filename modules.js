@@ -1,4 +1,4 @@
-var db = {
+const db = {
     py: /#.*[\r\n]/g,
     asm: /;.*[\r\n]/g,
     basic: /REM.*[\r\n]/g,
