@@ -16,4 +16,4 @@ if (!module.parent) {
     run(path);
 };
 
-module.exports = (path) => {run(path)};
+module.exports = (path, lang) => {run(path, lang)};

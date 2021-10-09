@@ -8,6 +8,8 @@ class Cleaner {
         this.lang = lang.join('');
     }
     async run() {
+        var fun = modules[this.lang];
+        if(!fun) throw new Error("we don't support it")
         this.txt = await modules[this.lang](this.txt);
     }
 };

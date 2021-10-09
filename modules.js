@@ -1,50 +1,60 @@
+var db = {
+    py: /#.*[\r\n]/g,
+    asm: /;.*[\r\n]/g,
+    basic: /REM.*[\r\n]/g,
+    ada: /(--[^#]+[\n|\r])/g,
+    html: /<!--(.|\s)*?-->/g,
+    lhs: /(>[^#].+[\n|\r])/g,
+    apl: /(⍝[^#].+[\n|\r])/g,
+    hs: /(--[^#].+[\n|\r])|({-[^#]+-})/g,
+    pascal: /(\(\*[^#]*\*\))|(\{[^#]*\})/g,
+    main: /(\/\*([^*]|[\r\n]|(\*+([^*\/]|[\r\n])))*\*+\/)|(\/\/.*)/g,
+    mat: /(%[^#].+)|(\%\{([^*]|[\r\n]|(\*+([^*\/]|[\r\n])))*\%+\})/g,
+    applescript: /(--[^#].+[\n|\r])|(#[^#].+[\n\r])|(\(\*[^#]+\*\))/g,
+    sql: /(--.*[\r\n])|((\/\*([^*]|[\r\n]|(\*+([^*\/]|[\r\n])))*\*+\/)|(\/\/.*))/g
+}
+
 var main = e => new Promise((l, r) => {
-    l(e.replaceAll(/(\/\*([^*]|[\r\n]|(\*+([^*\/]|[\r\n])))*\*+\/)|(\/\/.*)/g, ""))
+    l(e.replaceAll(db.main, ""))
 })
 
 
 module.exports = {
     html: e => new Promise((l, r) => {
-        l(e.replaceAll(/<!--(.|\s)*?-->/g, ""))
+        l(e.replaceAll(db.html, ""))
     }),
     basic: e => new Promise((l, r) => {
-        l(e.replaceAll(/REM.*[\r\n]/g, ""))
+        l(e.replaceAll(db.basic, ""))
     }),
     py: e => new Promise((l, r) => {
-        l(e.replaceAll(/#.*[\r\n]/g, ""))
+        l(e.replaceAll(db.py, ""))
     }),
     asm: e => new Promise((l, r) => {
-        l(e.replaceAll(/;.*[\r\n]/g, ""))
+        l(e.replaceAll(db.asm, ""))
     }),
     sql: e => new Promise((l, r) => {
-        l(e.replaceAll(/(--.*[\r\n])|((\/\*([^*]|[\r\n]|(\*+([^*\/]|[\r\n])))*\*+\/)|(\/\/.*))/g, ""))
+        l(e.replaceAll(db.sql, ""))
     }),
     ada: e => new Promise((l, r) => {
-        l(e.replaceAll(/(--[^#]+[\n|\r])/g, ""))
+        l(e.replaceAll(db.ada, ""))
     }),
     apl: e => new Promise((l, r) => {
-        l(e.replaceAll(/(⍝[^#].+[\n|\r])/g, ""))
-    }),
-    scpt: e => new Promise((l, r) => {
-        l(e.replaceAll(/(--[^#].+[\n|\r])|(#[^#].+[\n\r])|(\(\*[^#]+\*\))/g, ""));
-    }),
-    scptd: e => new Promise((l, r) => {
-        l(e.replaceAll(/(--[^#].+[\n|\r])|(#[^#].+[\n\r])|(\(\*[^#]+\*\))/g, ""));
+        l(e.replaceAll(db.apl, ""))
     }),
     applescript: e => new Promise((l, r) => {
-        l(e.replaceAll(/(--[^#].+[\n|\r])|(#[^#].+[\n\r])|(\(\*[^#]+\*\))/g, ""));
+        l(e.replaceAll(db.applescript, ""));
     }),
     hs: e => new Promise((l, r) => {
-        l(e.replaceAll(/(--[^#].+[\n|\r])|({-[^#]+-})/g, ""))
+        l(e.replaceAll(db.hs, ""))
     }),
     lhs: e => new Promise((l, r) => {
-        l(e.replaceAll(/(>[^#].+[\n|\r])/g, ""))
+        l(e.replaceAll(db.lhs, ""))
     }),
     mat: e => new Promise((l, r) => {
-        l(e.replaceAll(/(%[^#].+)|(\%\{([^*]|[\r\n]|(\*+([^*\/]|[\r\n])))*\%+\})/g, ''))
+        l(e.replaceAll(db.mat, ''))
     }),
     pascal: e => new Promise((l, r) => {
-        l(e.replaceAll(/(\(\*[^#]*\*\))|(\{[^#]*\})/g, ''));
+        l(e.replaceAll(db.pascal, ''));
     }),
     c: e => main(e),
     gy: e => main(e),
@@ -66,5 +76,7 @@ module.exports = {
     p: e => this.pascal(e),
     less: e => this.css(e),
     pl: e => this.pascal(e),
-    pas: e => this.pascal(e)
+    pas: e => this.pascal(e),
+    scpt: e => this.applescript(e),
+    scptd: e => this.applescript(e)
 };
