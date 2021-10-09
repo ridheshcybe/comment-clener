@@ -20,11 +20,11 @@
 - haskell
 - matlab
 - less
+- pascal
 
 
  # to do
 
-- pascal
 - perl
 - ruby
 - sass

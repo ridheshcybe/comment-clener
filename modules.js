@@ -1,4 +1,4 @@
-var regexall = e => new Promise((l, r) => {
+var main = e => new Promise((l, r) => {
     l(e.replaceAll(/(\/\*([^*]|[\r\n]|(\*+([^*\/]|[\r\n])))*\*+\/)|(\/\/.*)/g, ""))
 })
 
@@ -46,23 +46,25 @@ module.exports = {
     pascal: e => new Promise((l, r) => {
         l(e.replaceAll(/(\(\*[^#]*\*\))|(\{[^#]*\})/g, ''));
     }),
-    pl: e => this.pascal(e),
-    p: e => this.pascal(e),
-    pas: e => this.pascal(e),
+    c: e => main(e),
+    gy: e => main(e),
+    go: e => main(e),
+    cs: e => main(e),
+    ts: e => main(e),
+    js: e => main(e),
+    gvy: e => main(e),
+    gsh: e => main(e),
+    css: e => main(e),
+    php: e => main(e),
+    css: e => main(e),
+    php: e => main(e),
+    cpp: e => main(e),
+    java: e => main(e),
     m: e => this.mat(e),
+    groovy: e => main(e),
+    htm: e => this.html(e),
+    p: e => this.pascal(e),
     less: e => this.css(e),
-    go: e => regexall(e),
-    groovy: e => regexall(e),
-    gvy: e => regexall(e),
-    gy: e => regexall(e),
-    gsh: e => regexall(e),
-    java: e => regexall(e),
-    css: e => regexall(e),
-    php: e => regexall(e),
-    ts: e => regexall(e),
-    cpp: e => regexall(e),
-    js: e => regexall(e),
-    cs: e => regexall(e),
-    c: e => regexall(e),
-    htm: e => html(e)
+    pl: e => this.pascal(e),
+    pas: e => this.pascal(e)
 };
