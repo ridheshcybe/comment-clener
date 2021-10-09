@@ -1,0 +1,47 @@
+{
+    "name": "cc-clener",
+    "version": "0.0.1",
+    "description": "Comment cleaner for any file",
+    "main": "./window.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/cybemachine/comment-clener.git"
+    },
+    "keywords": [
+      "clean",
+      "minify",
+      "comment-cleaner",
+      "html",
+      "basic",
+      "python",
+      "assembly",
+      "sql",
+      "golang",
+      "groovy",
+      "java",
+      "css",
+      "php",
+      "typescript",
+      "c++",
+      "js",
+      "c#",
+      "c",
+      "ada",
+      "apl",
+      "applescript",
+      "haskell",
+      "matlab",
+      "less",
+      "pascal"
+    ],
+    "author": "cybemachine <https://github.com/cybemachine>",
+    "license": "dbad",
+    "bugs": {
+      "url": "https://github.com/cybemachine/comment-clener/issues"
+    },
+    "homepage": "https://github.com/cybemachine/comment-clener#readme",
+    "dependencies": {}
+  }

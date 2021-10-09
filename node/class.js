@@ -9,7 +9,7 @@ class Cleaner {
     }
     async run() {
         var fun = modules[this.lang];
-        if(!fun) throw new Error("we don't support it")
+        if (!fun) throw new Error("we don't support it")
         this.txt = await modules[this.lang](this.txt);
     }
 };

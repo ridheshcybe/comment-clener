@@ -16,10 +16,9 @@ const db = {
 
 var main = e => new Promise((l, r) => {
     l(e.replaceAll(db.main, ""))
-})
+});
 
-
-module.exports = {
+var func = {
     html: e => new Promise((l, r) => {
         l(e.replaceAll(db.html, ""))
     }),
@@ -80,3 +79,5 @@ module.exports = {
     scpt: e => this.applescript(e),
     scptd: e => this.applescript(e)
 };
+
+module.exports = func;

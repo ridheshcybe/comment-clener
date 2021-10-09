@@ -23,7 +23,7 @@
 - pascal
 
 
- # to do
+ # to do before v001 relese
 
 - perl
 - ruby
