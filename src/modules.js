@@ -18,7 +18,19 @@ var main = e => new Promise((l, r) => {
     l(e.replaceAll(db.main, ""))
 });
 
-var func = {
+class Cleaner{
+    constructor(text, extension) {
+        this.txt = text.replaceAll('\r', '');
+        this.extension = extension;
+    }
+    async run() {
+        var fun = this.modules[this.extension];
+        if (!fun) throw new Error("we don't support it");
+        this.txt = await fun(this.txt);
+    }
+};
+
+Cleaner.prototype.modules = {
     html: e => new Promise((l, r) => {
         l(e.replaceAll(db.html, ""))
     }),
@@ -69,15 +81,21 @@ var func = {
     php: e => main(e),
     cpp: e => main(e),
     java: e => main(e),
-    m: e => this.mat(e),
     groovy: e => main(e),
-    htm: e => this.html(e),
-    p: e => this.pascal(e),
-    less: e => this.css(e),
-    pl: e => this.pascal(e),
-    pas: e => this.pascal(e),
-    scpt: e => this.applescript(e),
-    scptd: e => this.applescript(e)
+    m: e => Cleaner.prototype.modules.mat(e),
+    sass: e=> Cleaner.prototype.modules.css(e),
+    htm: e => Cleaner.prototype.modules.html(e),
+    p: e => Cleaner.prototype.modules.pascal(e),
+    less: e => Cleaner.prototype.modules.css(e),
+    swift: e => Cleaner.prototype.modules.css(e),
+    pl: e => Cleaner.prototype.modules.pascal(e),
+    pas: e => Cleaner.prototype.modules.pascal(e),
+    scpt: e => Cleaner.prototype.modules.applescript(e),
+    scptd: e => Cleaner.prototype.modules.applescript(e),
 };
 
-module.exports = func;
+if(typeof window === 'undefined'){
+    module.exports = Cleaner;
+} else {
+    export default Cleaner;
+}

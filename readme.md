@@ -1,33 +1,29 @@
 # complete
 - html
- - basic
- - python
- - assembly
- - sql
- - golang
- - groovy
- - java
- - css
- - php
- - typescript
- - c++
- - js
- - c#
- - c
- - ada
+- basic
+- python
+- assembly
+- sql
+- golang
+- groovy
+- java
+- css
+- php
+- typescript
+- c++
+- js
+- c#
+- c
+- ada
 - apl
 - applescript
 - haskell
 - matlab
 - less
 - pascal
-
-
- # to do before v001 relese
-
-- perl
-- ruby
 - sass
 - swift
 - xml
-...forever
+
+
+# v0.0.1 is uploading.....
