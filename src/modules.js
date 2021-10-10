@@ -14,14 +14,12 @@ const db = {
     sql: /(--.*[\r\n])|((\/\*([^*]|[\r\n]|(\*+([^*\/]|[\r\n])))*\*+\/)|(\/\/.*))/g
 }
 
-var main = e => new Promise((l, r) => {
-    l(e.replaceAll(db.main, ""))
-});
+var main = async (e) => e.replaceAll(db.main, "");
 
-class Cleaner{
-    constructor(text, extension) {
-        this.txt = text.replaceAll('\r', '');
-        this.extension = extension;
+class Cleaner {
+    constructor(txt, ext) {
+        this.txt = txt.replaceAll('\r', '');
+        this.extension = ext;
     }
     async run() {
         var fun = this.modules[this.extension];
@@ -31,70 +29,46 @@ class Cleaner{
 };
 
 Cleaner.prototype.modules = {
-    html: e => new Promise((l, r) => {
-        l(e.replaceAll(db.html, ""))
-    }),
-    basic: e => new Promise((l, r) => {
-        l(e.replaceAll(db.basic, ""))
-    }),
-    py: e => new Promise((l, r) => {
-        l(e.replaceAll(db.py, ""))
-    }),
-    asm: e => new Promise((l, r) => {
-        l(e.replaceAll(db.asm, ""))
-    }),
-    sql: e => new Promise((l, r) => {
-        l(e.replaceAll(db.sql, ""))
-    }),
-    ada: e => new Promise((l, r) => {
-        l(e.replaceAll(db.ada, ""))
-    }),
-    apl: e => new Promise((l, r) => {
-        l(e.replaceAll(db.apl, ""))
-    }),
-    applescript: e => new Promise((l, r) => {
-        l(e.replaceAll(db.applescript, ""));
-    }),
-    hs: e => new Promise((l, r) => {
-        l(e.replaceAll(db.hs, ""))
-    }),
-    lhs: e => new Promise((l, r) => {
-        l(e.replaceAll(db.lhs, ""))
-    }),
-    mat: e => new Promise((l, r) => {
-        l(e.replaceAll(db.mat, ''))
-    }),
-    pascal: e => new Promise((l, r) => {
-        l(e.replaceAll(db.pascal, ''));
-    }),
-    c: e => main(e),
-    gy: e => main(e),
-    go: e => main(e),
-    cs: e => main(e),
-    ts: e => main(e),
-    js: e => main(e),
-    gvy: e => main(e),
-    gsh: e => main(e),
-    css: e => main(e),
-    php: e => main(e),
-    css: e => main(e),
-    php: e => main(e),
-    cpp: e => main(e),
-    java: e => main(e),
-    groovy: e => main(e),
-    m: e => Cleaner.prototype.modules.mat(e),
-    sass: e=> Cleaner.prototype.modules.css(e),
-    htm: e => Cleaner.prototype.modules.html(e),
-    p: e => Cleaner.prototype.modules.pascal(e),
-    less: e => Cleaner.prototype.modules.css(e),
-    swift: e => Cleaner.prototype.modules.css(e),
-    pl: e => Cleaner.prototype.modules.pascal(e),
-    pas: e => Cleaner.prototype.modules.pascal(e),
-    scpt: e => Cleaner.prototype.modules.applescript(e),
-    scptd: e => Cleaner.prototype.modules.applescript(e),
-};
+    c: a => main(a),
+    gy: a => main(a),
+    go: a => main(a),
+    cs: a => main(a),
+    ts: a => main(a),
+    js: a => main(a),
+    gvy: a => main(a),
+    gsh: a => main(a),
+    css: a => main(a),
+    php: a => main(a),
+    css: a => main(a),
+    php: a => main(a),
+    cpp: a => main(a),
+    java: a => main(a),
+    groovy: a => main(a),
+    hs: async a => a.replaceAll(db.hs, ""),
+    py: async a => a.replaceAll(db.py, ""),
+    lhs: async a => a.replaceAll(db.lhs, ""),
+    mat: async a => a.replaceAll(db.mat, ""),
+    asm: async a => a.replaceAll(db.asm, ""),
+    sql: async a => a.replaceAll(db.sql, ""),
+    ada: async a => a.replaceAll(db.ada, ""),
+    apl: async a => a.replaceAll(db.apl, ""),
+    m: a => Cleaner.prototype.modules.mat(a),
+    html: async a => a.replaceAll(db.html, ""),
+    sass: a => Cleaner.prototype.modules.css(a),
+    htm: a => Cleaner.prototype.modules.html(a),
+    p: a => Cleaner.prototype.modules.pascal(a),
+    less: a => Cleaner.prototype.modules.css(a),
+    swift: a => Cleaner.prototype.modules.css(a),
+    pl: a => Cleaner.prototype.modules.pascal(a),
+    basic: async a => a.replaceAll(db.basic, ""),
+    pas: a => Cleaner.prototype.modules.pascal(a),
+    pascal: async a => a.replaceAll(db.pascal, ""),
+    scpt: a => Cleaner.prototype.modules.applescript(a),
+    scptd: a => Cleaner.prototype.modules.applescript(a),
+    applescript: async a => a.replaceAll(db.applescript, ""),
+}
 
-if(typeof window === 'undefined'){
+if (typeof window === 'undefined') {
     module.exports = Cleaner;
 } else {
     export default Cleaner;

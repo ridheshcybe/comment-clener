@@ -4,18 +4,18 @@ if (typeof window === 'undefined') {
 } else {
     import Cleaner from './modules.js';
     window.Commentclener = (code, lang, log = false) => new Promise((l, r) => {
-            var cleaner = new Cleaner(code, lang);
-            cleaner.run().then((e) => {
-                var {
-                    txt
-                } = e;
-    
-                if (log) {
-                    console.log(txt)
-                };
-                
-                l(e);
-            })
-        });
-    
+        var cleaner = new Cleaner(code, lang);
+        cleaner.run().then((e) => {
+            var {
+                txt
+            } = e;
+
+            if (log) {
+                console.log(txt)
+            };
+
+            l(e);
+        })
+    });
+
 }
