@@ -47,6 +47,7 @@ class Cleaner {
         var fun = this.modules[this.extension];
         if (!fun) throw new Error("we don't support it");
         this.txt = await fun(this.txt);
+        return this.txt;
     }
 };
 
