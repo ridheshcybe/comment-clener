@@ -1,0 +1,33 @@
+<html>
+  <head>
+      <style>
+          body{
+              display:grid;
+              height: 99vh;
+              row-gap: 10px;
+              margin: 3px;
+          }
+      </style>
+  </head>
+  <body>
+    <textarea id="input" placeholder="Type here!"></textarea>
+    <option>
+
+    </option>
+    <button onclick="submit()">submit</button>
+    <textarea id="output" placeholder="output"></textarea>
+    <script src="https://github.dev/cybemachine/comment-clener/blob/dd07942e93cf5db196a80f0e42e94d15fd0c223e/src/window.js#L1"></script>
+    <scipt type="module">
+import cleanfunc from './window';
+        function submit(){
+const input = document.getElementById("input");
+const output = document.getElementById("output");
+const lang = document.getElementById("lang");
+output.innerHTML = "Converting Code....."
+cleanfunc(input.value, lang.value || 'js').then(e=>{
+        output.innerHTML = e;
+        })
+        }
+    </scipt>
+  </body>
+</html>
